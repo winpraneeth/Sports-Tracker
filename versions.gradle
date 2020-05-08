@@ -1,0 +1,5 @@
+ext {
+    daggerVersion = "2.19"
+    retrofitVersion = '2.8.1'
+    retrofitLogVersion = '4.6.0'
+}
