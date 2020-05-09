@@ -1,5 +1,6 @@
 package com.example.sportstracker.di.module
 
+import com.example.sportstracker.api.SportsDbApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -13,6 +14,12 @@ import javax.inject.Singleton
 
 @Module
 class NetworkModule {
+
+    @Singleton
+    @Provides
+    fun providesSportsDbApi(retrofit: Retrofit): SportsDbApi? {
+        return retrofit.create(SportsDbApi::class.java)
+    }
 
     @Singleton
     @Provides

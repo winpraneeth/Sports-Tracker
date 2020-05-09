@@ -1,5 +1,7 @@
 ext {
-    daggerVersion = "2.19"
+    daggerVersion = "2.21"
     retrofitVersion = '2.8.1'
     retrofitLogVersion = '4.6.0'
+    architectureVersion = '1.1.1'
+    andrxVersion = '2.2.2'
 }
