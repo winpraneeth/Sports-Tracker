@@ -17,7 +17,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providesSportsDbApi(retrofit: Retrofit): SportsDbApi? {
+    fun providesSportsDbApi(retrofit: Retrofit): SportsDbApi {
         return retrofit.create(SportsDbApi::class.java)
     }
 
@@ -25,7 +25,7 @@ class NetworkModule {
     @Provides
     fun providesOkHttpClient(
         interceptor: Interceptor
-    ): OkHttpClient? {
+    ): OkHttpClient {
         val builder: OkHttpClient.Builder = OkHttpClient.Builder()
             .connectTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)
             .readTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)
@@ -36,9 +36,9 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit? {
+    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://www.thesportsdb.com/api/v1/json")
+            .baseUrl("https://www.thesportsdb.com")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -46,7 +46,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providesInterceptor(): Interceptor? {
+    fun providesInterceptor(): Interceptor {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         return interceptor

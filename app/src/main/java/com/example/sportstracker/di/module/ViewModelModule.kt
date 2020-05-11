@@ -14,8 +14,8 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(LeagueListViewModel::class)
-    abstract fun bindsArticleListViewModel(articleListViewModel: LeagueListViewModel?): ViewModel
+    abstract fun bindsLeagueListViewModel(leagueListViewModel: LeagueListViewModel): ViewModel
 
     @Binds
-    abstract fun bindsViewModelFactory(viewModelFactory: ViewModelFactory?): ViewModelProvider.Factory
+    abstract fun bindsViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
 }

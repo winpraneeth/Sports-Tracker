@@ -7,6 +7,7 @@ class Resource<T> private constructor(
 ) {
 
     companion object {
+        @JvmStatic
         fun <T> success(data: T): Resource<T> {
             return Resource(
                 Status.SUCCESS,
@@ -15,6 +16,7 @@ class Resource<T> private constructor(
             )
         }
 
+        @JvmStatic
         fun <T> error(msg: String?, data: T?): Resource<T?> {
             return Resource(
                 Status.ERROR,
@@ -23,6 +25,7 @@ class Resource<T> private constructor(
             )
         }
 
+        @JvmStatic
         fun <T> loading(data: T?): Resource<T?> {
             return Resource(
                 Status.LOADING,
